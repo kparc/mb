@@ -11,7 +11,7 @@ typedef double F;
 #define SEED
 //#define SEED              srand(time(0));
 
-#define ROUNDS 100000000
+#define ROUNDS 1000000000
 
 typedef unsigned long long I;
 #define O printf

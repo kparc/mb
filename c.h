@@ -23,7 +23,7 @@ I rnd(I l,I h){R(rand()%(h-l+1))+l;}
 
 I*gen(){
     I*vec = malloc(sizeof(I)*3*ARENA);
-    N(ARENA,vec[i]=rnd(2010,2050);vec[i+1]=rnd(1,12);vec[i+2]=rnd(1,27);i+=3)
+    N(ARENA,vec[i]=rnd(2001,2100);vec[i+1]=rnd(1,12);vec[i+2]=rnd(1,27);i+=3)
     R vec;
 }
 

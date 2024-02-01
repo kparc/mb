@@ -12,6 +12,6 @@ int main(){
             BUSYWORK();
         )
     )
-    O("%u %f\n",r,wall);
+    O("%u %f %u\n",r,wall,n);
 }
 //:~

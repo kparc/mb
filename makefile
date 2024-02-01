@@ -1,4 +1,4 @@
-CC=clang
+CC=gcc
 all:
 	rm -f m && $(CC) -ffast-math -fno-unwind-tables -fno-stack-protector -O3 m.c -o m
 	./m

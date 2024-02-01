@@ -8,8 +8,8 @@ typedef double F;
 #define TIME(x)           clock_gettime(CLOCK_REALTIME,&x);
 #define MSEC(x)           (x.tv_sec*1000+x.tv_nsec/1000000.0)
 #define WALL(a...)        TIME(start);a;TIME(end);wall=(MSEC(end)-MSEC(start))/1000.0;
-#define SEED
-//#define SEED              srand(time(0));
+//#define SEED
+#define SEED              srand(time(0));
 
 #define ROUNDS 200
 

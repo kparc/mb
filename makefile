@@ -1,6 +1,6 @@
 CC=clang
 all:
-	rm -f m && $(CC) -ffast-math -Os m.c -o m
+	rm -f m && $(CC) -ffast-math -fno-unwind-tables -fno-stack-protector -O3 m.c -o m
 	./m
-	rm -f l && $(CC) -ffast-math -Os l.c -o l
+	rm -f l && $(CC) -ffast-math -fno-unwind-tables -fno-stack-protector -O3 l.c -o l
 	./l

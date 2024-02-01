@@ -32,11 +32,16 @@ I*gen(){
 #define DONE() O("%llu %f\n",r,wall);R 0;
 
 #ifdef LT
+
 const I LUT[12]={0,31,61,92,122,153,184,214,245,275,306,337};
 #define mb(m) LUT[m]
+
 #else
+
+#define mb(m) ((m*306+5)*13107>>17) //courtesy aab
 //#define mb(m)  ((153*m+2)*3277>>14)
-#define mb(m)  ((153*m+2)*1639>>13)
+//#define mb(m)  ((153*m+2)*1639>>13)
+
 #endif
 
 Zin UI ymd(UI y,UI m,UI d){R y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;}

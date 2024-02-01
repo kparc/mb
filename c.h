@@ -11,7 +11,7 @@ typedef double F;
 #define SEED
 //#define SEED              srand(time(0));
 
-#define ROUNDS 1000000000
+#define ROUNDS 100
 
 typedef unsigned long long I;
 #define O printf
@@ -22,6 +22,9 @@ int pick(){
     return (rand() % (11 - 0 + 1)) + 0; 
 }
 
+const size_t bigger_than_cachesize = 10 * 1024 * 1024;
+long p[bigger_than_cachesize];
 
+#define BUSYWORK() for(int i=0;i<bigger_than_cachesize;i++)p[i]=rand();
 
 //:~

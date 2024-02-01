@@ -23,7 +23,7 @@ I rnd(I l,I h){R(rand()%(h-l+1))+l;}
 
 I*gen(){
     I*vec = malloc(sizeof(I)*3*ARENA);
-    N(ARENA,vec[i]=rnd(2010,2020);vec[i+1]=rnd(1,12);vec[i+2]=rnd(1,27);i+=3)
+    N(ARENA,vec[i]=rnd(2010,2050);vec[i+1]=rnd(1,12);vec[i+2]=rnd(1,27);i+=3)
     R vec;
 }
 
@@ -33,14 +33,18 @@ I*gen(){
 
 #ifdef LT
 
+#define TAG "lut"
+
 const I LUT[12]={0,31,61,92,122,153,184,214,245,275,306,337};
 #define mb(m) LUT[m]
 
 #else
 
-//#define mb(m) ((m*306+5)*13107>>17) //courtesy aab
+#define TAG "register"
+
+//#define mb(m) ((m*306+5)*13107>>17)
 //#define mb(m)  ((153*m+2)*3277>>14)
-#define mb(m)  ((153*m+2)*1639>>13)
+#define mb(m)  ((m*153+2)*1639>>13)
 
 #endif
 

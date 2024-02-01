@@ -5,8 +5,8 @@
 typedef double F;typedef int I; typedef unsigned int UI;typedef unsigned long long UJ;
 #define Zin __attribute__((always_inline)) inline
 
-#define ARENA 10000000
-#define ROUNDS 2000
+#define ARENA 50000000
+#define ROUNDS 200
 
 #define BENCH()           F wall=0;struct timespec start,end;
 #define TIME(x)           clock_gettime(CLOCK_REALTIME,&x);
@@ -23,6 +23,7 @@ I rnd(I l,I h){R(rand()%(h-l+1))+l;}
 
 I*gen(){
     I*vec = malloc(sizeof(I)*3*ARENA);
+    O("arena %lu mb\n", sizeof(I)*3*ARENA/1048576);
     N(ARENA,vec[i]=rnd(2001,2100);vec[i+1]=rnd(1,12);vec[i+2]=rnd(1,27);i+=3)
     R vec;
 }

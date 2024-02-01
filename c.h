@@ -16,14 +16,14 @@ typedef double F;typedef int I; typedef unsigned int UI;typedef unsigned long lo
 
 #define R return
 #define O printf
-#define N(n,a...){I i=0,_n=(n);while(i<_n){a;++i;}}
-#define Nj(n,a...){I j=0,_n=(n);while(j<_n){a;++j;}}
+#define N(n,a...){UI i=0,_n=(n);while(i<_n){a;++i;}}
+#define Nj(n,a...){UI j=0,_n=(n);while(j<_n){a;++j;}}
 
 I rnd(I l,I h){R(rand()%(h-l+1))+l;}
 
 I*gen(){
     I*vec = malloc(sizeof(I)*3*ARENA);
-    N(ARENA,vec[i++]=rnd(2010,2034);vec[i++]=rnd(1,12);vec[i++]=rnd(1,28);)
+    N(ARENA,vec[i]=rnd(2010,2020);vec[i+1]=rnd(1,12);vec[i+2]=rnd(1,27);i+=3)
     R vec;
 }
 
@@ -38,13 +38,13 @@ const I LUT[12]={0,31,61,92,122,153,184,214,245,275,306,337};
 
 #else
 
-#define mb(m) ((m*306+5)*13107>>17) //courtesy aab
+//#define mb(m) ((m*306+5)*13107>>17) //courtesy aab
 //#define mb(m)  ((153*m+2)*3277>>14)
-//#define mb(m)  ((153*m+2)*1639>>13)
+#define mb(m)  ((153*m+2)*1639>>13)
 
 #endif
 
-Zin UI ymd(UI y,UI m,UI d){R y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;}
+Zin I ymd(I y,I m,I d){R y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;}
 
 
 //:~

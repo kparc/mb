@@ -6,7 +6,7 @@ typedef double F;typedef int I; typedef unsigned int UI;typedef unsigned long lo
 #define Zin __attribute__((always_inline)) inline
 
 #define ARENA 50000000
-#define ROUNDS 200
+#define ROUNDS 500
 
 #define BENCH()           F wall=0;struct timespec start,end;
 #define TIME(x)           clock_gettime(CLOCK_REALTIME,&x);

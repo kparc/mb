@@ -27,7 +27,7 @@ I main(){
             N(ARENA,r+=ymd(v[i],v[i+1],v[i+2]);i+=3)))
 
     O("checksum: %llu wall time: %fs\n",r,wall);
-    R 0;
+    R free(v),0;
 }
     
 //:~

@@ -1,27 +1,26 @@
 # fast month boundary
 
-a fresh take on a very common problem.
+we present a fresh take on a very old and common problem: it is very innefficient to represent dates of Gregorian calendar in computer memory in a way most humans are accustomed to perceive them. for instance, there is galaxy of ways to write down `February 1st, 1981` in some human-readable format, e.g. `020181`, `1981-02-01` or "Первое февраля 1981 года н.э." but none of them are good for a computer to store and perform efficient arithmetic on them. for that reason, computers usually do it differently, as foolows.
 
 ## epoch date
 
-let `ymd()` be a routine which accepts an arbitrary triple (year, month, day) which represents a valid Gregorian date, and returns a unique signed integer which represents the number of days from/to given date relative to some chosen "epoch time". for example:
+let `ymd()` be a function which accepts an arbitrary triple (year, month, day) which represents a valid Gregorian date, and returns a unique signed integer which represents the number of days prior to or after relative to some chosen fixed point in time, known as _epoch_. for example:
 
 ```
 int ymd(int y,int m,int d){return y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;}
 ```
 
-in this implementation, `ymd(2001,1,1)` yields `0`, that is January 1st, 2001 must be the epoch date.
+in this C implementation, `ymd(2001,1,1)` yields `0`, which means January 1st, 2001 must be the _epoch_.
 
-we also observe a critical moving part of `ymd()`, which is the `mb()` routine, or _month boundary_, which we define as follows:
+a great many texts have been written on this and related algorighms, a typical such [text](https://howardhinnant.github.io/date_algorithms.html) usually begins with an elucidation why it happens to be more convenient to "begin" a Gregorian year in March for this particular purpose. if the reason for this oddity isn't immediately apparent, it helps to revisit the idea of _leap years_, which is a fundamental feature of Gregorian system which makes it remarkably accurate while keeping it sufficiently simple for humans.
 
-> a map of month indices `0..11` where `0` represents `March`, to the number of days elapsed since March 1st up to
-  the 1st day of a given month, which gives the following sequence:
+however, efficient translation of relative epoch offsets back and forth to human-readable format is not at all a trivial problem. we observe a critical moving part of `ymd()` implementation, which is the `mb()` routine, or _month boundary_, which we define as follows:
+
+> a map of month indices `0..11` where `0` represents `March`, to the number of days elapsed since March 1st up to the 1st day of a given month, which gives the following static sequence for _any_ given year:
 
 ```
 0 31 61 92 122 153 184 214 245 275 306 337
 ```
-
-a great many texts have been written on this and related algorighms, a typical such [text](https://howardhinnant.github.io/date_algorithms.html) usually begins with an elucidation why it happens to be more convenient to "begin" a Gregorian year in March for this particular purpose.
 
 ## some mb() routines
 

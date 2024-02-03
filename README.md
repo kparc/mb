@@ -22,11 +22,13 @@ however, efficient translation of relative epoch offsets back and forth to human
 0 31 61 92 122 153 184 214 245 275 306 337
 ```
 
-## some mb() routines
+make no mistake, these conversions are taking place countless times per second all over the planet Earth, all day, every day, and since these conversions require computation, they require time and energy. luckily enough, one might say, at least implementation of `mb()` seems cheap and trivial enough.  
+
+## some mb() implementations
 
 the code in this repository implements a simple linear benchmark of two different implementations of `mb()` in plain ISO C:
 
- 1. a straightforward constant lookup table (LUT) solution.
+ 1. a trivial constant lookup table (LUT) solution.
  2. a less naive technique offered by the regents of kparc.
 
 ```

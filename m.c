@@ -10,7 +10,7 @@ I*gen(){UJ n=sizeof(I)*3*ARENA;I*v=malloc(n);
  N(ARENA,v[i]=rnd(2001,2100);v[i+1]=rnd(1,12);v[i+2]=rnd(1,27);i+=3)R v;}
 
 //!convert gregorian triplet to epoch time
-I ymd(I y,I m,I d){R y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;}
+Zin I ymd(I y,I m,I d){R y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;}
 
 I main(){
     SEED(0)BENCH()
@@ -26,7 +26,7 @@ I main(){
         Nj(ROUNDS,
             N(ARENA,r+=ymd(v[i],v[i+1],v[i+2]);i+=3)))
 
-    O("checksum: %llu wall time: %fms\n",r,wall);
+    O("checksum: %llu wall time: %fs\n",r,wall);
     R 0;
 }
     

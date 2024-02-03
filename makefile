@@ -1,4 +1,4 @@
-CC=gcc-12
+CC=clang
 O=-ffast-math -fno-unwind-tables -fno-stack-protector -Ofast
 
 all: clean

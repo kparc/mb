@@ -3,10 +3,11 @@
 #include<stdlib.h> 
 
 typedef double F;typedef int I; typedef unsigned int UI;typedef unsigned long long UJ;
-#define Zin __attribute__((always_inline)) inline
 
-#define ARENA 50000000
-#define ROUNDS 500
+#define R return
+#define O printf
+#define N(n,a...){UI i=0,_n=(n);while(i<_n){a;++i;}}
+#define Nj(n,a...){UI j=0,_n=(n);while(j<_n){a;++j;}}
 
 #define BENCH()           F wall=0;struct timespec start,end;
 #define TIME(x)           clock_gettime(CLOCK_REALTIME,&x);
@@ -14,42 +15,18 @@ typedef double F;typedef int I; typedef unsigned int UI;typedef unsigned long lo
 #define WALL(a...)        TIME(start);a;TIME(end);wall=(MSEC(end)-MSEC(start))/1000.0;
 #define SEED(s)           !s?:srand(time(0));
 
-#define R return
-#define O printf
-#define N(n,a...){UI i=0,_n=(n);while(i<_n){a;++i;}}
-#define Nj(n,a...){UI j=0,_n=(n);while(j<_n){a;++j;}}
-
 I rnd(I l,I h){R(rand()%(h-l+1))+l;}
 
-I*gen(){
-    I*vec = malloc(sizeof(I)*3*ARENA);
-    O("arena %lu mb\n", sizeof(I)*3*ARENA/1048576);
-    N(ARENA,vec[i]=rnd(2001,2100);vec[i+1]=rnd(1,12);vec[i+2]=rnd(1,27);i+=3)
-    R vec;
-}
-
-#define GEN() I*vec=gen();UJ r=0;
-
-#define DONE() O("%llu %f\n",r,wall);R 0;
-
-#ifdef LT
-
+#ifdef LUT
 #define TAG "lut"
-
-const I LUT[12]={0,31,61,92,122,153,184,214,245,275,306,337};
-#define mb(m) LUT[m]
-
+const I lut[12]={0,31,61,92,122,153,184,214,245,275,306,337};
+#define mb(m) lut[m]
 #else
-
-#define TAG "register"
-
-//#define mb(m) ((m*306+5)*13107>>17)
-//#define mb(m)  ((153*m+2)*3277>>14)
-#define mb(m)  ((m*153+2)*1639>>13)
-
+#define TAG "kps"
+//#define mb(m) ((m*306+5)*13107>>17) //!< courtesy aab
+#define mb(m)    ((m*153+2)*1639>>13) //!< regents of kparc
 #endif
 
-Zin I ymd(I y,I m,I d){R y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;}
-
+#define Zin __attribute__((always_inline)) inline
 
 //:~

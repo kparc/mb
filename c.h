@@ -23,7 +23,7 @@ I rnd(I l,I h){R(rand()%(h-l+1))+l;}
 const I lut[12]={0,31,61,92,122,153,184,214,245,275,306,337};
 #define mb(m) lut[m]
 #else
-#define TAG "kps"
+#define TAG "kpc"
 //#define mb(m) ((m*306+5)*13107>>17) //!< courtesy aab
 #define mb(m)    ((m*153+2)*1639>>13) //!< regents of kparc
 #endif

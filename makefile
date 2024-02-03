@@ -8,4 +8,4 @@ all: clean
 	@./l
 
 clean:
-	@!rm -f r l
+	@rm -f r l

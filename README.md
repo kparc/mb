@@ -12,7 +12,7 @@ int ymd(int y,int m,int d){return y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;
 
 in this implementation, `ymd(2001,1,1)` yields `0`, that is January 1st, 2001 must be the epoch date.
 
-we also observe a critical moving part of `ymd()`, which is the `mb()` routine, or _month boundary_ which is defined as follows:
+we also observe a critical moving part of `ymd()`, which is the `mb()` routine, or _month boundary_, which we define as follows:
 
 > a map of month indices `0..11` where `0` represents `March`, to the number of days elapsed since March 1st up to
   the 1st day of a given month, which gives the following sequence:

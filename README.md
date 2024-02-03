@@ -52,7 +52,7 @@ checksum: 313672978615296 wall time: 5.535038s
 
 ```
 
-please let us know if you are aware of prior art of the latter techique.
+please let us know if you are aware of prior art of the latter techique, or a better one.
 
 
 copyright (c) 2020-2024 regents of kparc, MIT license

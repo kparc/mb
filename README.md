@@ -4,7 +4,7 @@ we present a fresh take on a very old and common problem: it is very innefficien
 
 ## epoch date
 
-let `ymd()` be a function which accepts an arbitrary triple (year, month, day) which represents a valid Gregorian date, and returns a unique signed integer which represents the number of days prior to or after relative to some chosen fixed point in time, known as _epoch_. for example:
+let `ymd()` be a function which accepts an arbitrary triple (year, month, day) which represents a valid Gregorian date, and returns a unique signed integer which represents the number of days prior to or after some chosen fixed point in time, known as _epoch_. for example:
 
 ```
 int ymd(int y,int m,int d){return y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;}
@@ -12,7 +12,7 @@ int ymd(int y,int m,int d){return y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;
 
 in this C implementation, `ymd(2001,1,1)` yields `0`, which means January 1st, 2001 must be the _epoch_.
 
-a great many texts have been written on this and related algorighms, a typical such [text](https://howardhinnant.github.io/date_algorithms.html) usually begins with an elucidation why it happens to be more convenient to "begin" a Gregorian year in March for this particular purpose. if the reason for this oddity isn't immediately apparent, it helps to revisit the idea of _leap years_, which is a fundamental feature of Gregorian system which makes it remarkably accurate while keeping it sufficiently simple for humans.
+many great texts have been written on this and related algorighms, and a typical such [text](https://howardhinnant.github.io/date_algorithms.html) usually begins with elucidation of why it happens to be more convenient to "begin" a Gregorian year in March. if the reason for this oddity isn't immediately apparent, it helps to revisit the idea of _leap years_, which is a fundamental feature of Gregorian system which makes it remarkably accurate while keeping it sufficiently simple for humans.
 
 however, efficient translation of relative epoch offsets back and forth to human-readable format is not at all a trivial problem. we observe a critical moving part of `ymd()` implementation, which is the `mb()` routine, or _month boundary_, which we define as follows:
 

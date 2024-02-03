@@ -22,7 +22,7 @@ however, efficient translation of relative epoch offsets back and forth to human
 0 31 61 92 122 153 184 214 245 275 306 337
 ```
 
-adn make no mistake, these conversions are taking place countless times per second all over the planet Earth, all day, every day, and since these conversions require computation, they require time and energy. luckily enough, one might say, at least implementation of `mb()` seems cheap and trivial enough.  
+make no mistake, these conversions are taking place countless times per second all over the planet Earth, all day, every day, and since these conversions require computation, they require time and energy. luckily enough, one might say, at least implementation of `mb()` seems cheap and trivial enough.  
 
 ## some mb() implementations
 

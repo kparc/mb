@@ -1,4 +1,4 @@
-//!fast month boundary \copyright (c) 2020-2024 the regents of kparc \license mit#include"c.h"
+//!fast month boundary \copyright (c) 2020-2024 the regents of kparc \license mit
 
 #define ARENA  1024*1024*128
 #define ROUNDS 512

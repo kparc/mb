@@ -39,7 +39,7 @@ arena 1536 mb, 512 rounds:
 2016-6-26 184 5655
 2087-1-7 31 31417
 ...
-checksum: 313672978615296 wall time: 40.845529ms
+checksum: 313672978615296 wall time: 40.845529s
 
 
 month boundary benchmark (kpc):
@@ -48,7 +48,7 @@ arena 1536 mb, 512 rounds:
 2016-6-26 184 5655
 2087-1-7 31 31417
 ...
-checksum: 313672978615296 wall time: 5.535038ms
+checksum: 313672978615296 wall time: 5.535038s
 
 ```
 

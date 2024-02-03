@@ -25,7 +25,7 @@ a great many texts have been written on this and related algorighms, a typical s
 
 ## some mb() routines
 
-the code in this repository implements a simple linear benchmark of two different implemetations of `mb()` in plain ISO C:
+the code in this repository implements a simple linear benchmark of two different implementations of `mb()` in plain ISO C:
 
  1. a straightforward constant lookup table (LUT) solution.
  2. a less naive technique offered by the regents of kparc.

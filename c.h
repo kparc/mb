@@ -1,3 +1,4 @@
+//!fast month boundary \copyright (c) 2020-2024 the regents of kparc \license mit
 #include<time.h>
 #include<stdio.h> 
 #include<stdlib.h> 

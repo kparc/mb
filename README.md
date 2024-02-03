@@ -16,7 +16,7 @@ a great many texts have been written on this and related algorighms, a typical s
 
 however, efficient translation of relative epoch offsets back and forth to human-readable format is not at all a trivial problem. we observe a critical moving part of `ymd()` implementation, which is the `mb()` routine, or _month boundary_, which we define as follows:
 
-> a map of month indices `0..11` where `0` represents `March`, to the number of days elapsed since March 1st up to the 1st day of a given month, which gives the following static sequence for _any_ given year:
+> a map of month indices `0..11` where `0` represents `March`, to the number of days elapsed since March 1st up to the 1st day of a given month, which gives the following static sequence for _any_ given year, be it a leap year or not:
 
 ```
 0 31 61 92 122 153 184 214 245 275 306 337

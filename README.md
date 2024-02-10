@@ -34,23 +34,26 @@ the code in this repository implements a simple linear benchmark of two differen
 ```
 $ cd mb && make
 
-month boundary benchmark (lut):
-arena 1536 mb, 512 rounds:
-2084-11-19 337 30638
-2016-6-26 184 5655
-2087-1-7 31 31417
-...
-checksum: 313672978615296 wall time: 40.845529s
-
+Apple clang version 15.0.0 (clang-1500.1.0.2.5)
+Target: arm64-apple-darwin23.3.0
 
 month boundary benchmark (kpc):
-arena 1536 mb, 512 rounds:
-2084-11-19 337 30638
-2016-6-26 184 5655
-2087-1-7 31 31417
-...
-checksum: 313672978615296 wall time: 5.535038s
 
+arena 3072 mb, 1 laps:
+2008-2-24 61 2610
+2059-11-9 337 21496
+2045-3-27 92 16156
+...
+checksum: 1225299026794 wall time: 0.095106s
+
+month boundary benchmark (lut):
+
+arena 3072 mb, 1 laps:
+2008-2-24 61 2610
+2059-11-9 337 21496
+2045-3-27 92 16156
+...
+checksum: 1225299026794 wall time: 0.152713s
 ```
 
 please let us know if you are aware of prior art of the latter techique, or a better one.

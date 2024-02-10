@@ -9,8 +9,11 @@ endif
 W=-Wno-ignored-optimization-argument
 O+= -funroll-all-loops -funsafe-math-optimizations -fno-unwind-tables -fprefetch-loop-arrays -fno-stack-protector -Ofast $W
 
+#adventure time!
+#CC=tcc
+
 all: clean
-	$(shell $(CC) -v | grep version)
+	@$(CC) -v
 	@$(CC) -ULUT $O m.c -or && ./r
 	@$(CC) -DLUT $O m.c -ol && ./l
 

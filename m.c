@@ -1,7 +1,7 @@
 //!fast month boundary \copyright (c) 2020-2024 the regents of kparc \license mit
 #include"c.h"
 
-#define ARENA  1024*1024*256
+#define ARENA  1024*1024*128*2
 #define LAPS   1
 
 //!generate a bunch of random gregorian triplets e.g. (2001,1,1)
@@ -10,7 +10,7 @@ I*gen(){UJ n=sizeof(I)*3*ARENA;I*v=malloc(n);
  N(ARENA,v[i]=rnd(2001,2100);v[i+1]=rnd(1,12);v[i+2]=rnd(1,27);i+=3)R v;}
 
 //!convert gregorian triplet to epoch time
-Zin I ymd(I y,I m,I d){R y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;}
+Zin static I ymd(I y,I m,I d){R y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;}
 
 I main(){
     SEED(0)BENCH()O("\nmonth boundary benchmark (%s):\n\n", TAG);

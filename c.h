@@ -21,7 +21,7 @@ static I rnd(I l,I h){R(rand()%(h-l+1))+l;}
 
 #ifdef LUT
 #define TAG "lut"
-const I lut[12]={0,31,61,92,122,153,184,214,245,275,306,337};
+static const I lut[12]={0,31,61,92,122,153,184,214,245,275,306,337};
 #define mb(m) lut[m]
 #else
 #define TAG "kpc"

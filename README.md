@@ -10,7 +10,7 @@ let `ymd()` be a function which accepts an arbitrary triple (year, month, day) w
 int ymd(int y,int m,int d){return y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;}
 ```
 
-in this C implementation, `ymd(2001,1,1)` yields `0`, which means January 1st, 2001 must be the _epoch_.
+in this C implementation, `ymd(2001,1,1)` yields `0`, which means January 1st, 2001 must be the _epoch_. contrary to another, much more famous epoch date chosen as the beginning of _Aerae vulgaris_, or just CE, we chose this particular epoch date for a more practical and literally more down-to-earth reason: Jan 1st 2001 was a `Monday`.
 
 many great texts have been written on this and related algorighms, and any such [text](https://howardhinnant.github.io/date_algorithms.html) usually begins with elucidation of why it happens to be more convenient to "begin" a Gregorian year in March. if the reason for this oddity isn't immediately apparent, it helps to revisit the idea of _leap years_, which is a fundamental feature of Gregorian system which makes it remarkably accurate while keeping it sufficiently simple for humans.
 

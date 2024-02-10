@@ -7,8 +7,9 @@ typedef double F;typedef int I; typedef unsigned int UI;typedef unsigned long lo
 
 #define R return
 #define O printf
-#define N(n,a...){UI i=0,_n=(n);while(i<_n){a;++i;}}
-#define Nj(n,a...){UI j=0,_n=(n);while(j<_n){a;++j;}}
+#define W while
+#define N(n,a...){UI i=0,_n=(n);W(i<_n){a;++i;}}
+#define Nj(n,a...){UI j=0,_n=(n);W(j<_n){a;++j;}}
 
 #define BENCH()           F wall=0;struct timespec start,end;
 #define TIME(x)           clock_gettime(CLOCK_REALTIME,&x);
@@ -16,7 +17,7 @@ typedef double F;typedef int I; typedef unsigned int UI;typedef unsigned long lo
 #define WALL(a...)        TIME(start);a;TIME(end);wall=(MSEC(end)-MSEC(start))/1000.0;
 #define SEED(s)           !s?:srand(time(0));
 
-I rnd(I l,I h){R(rand()%(h-l+1))+l;}
+static I rnd(I l,I h){R(rand()%(h-l+1))+l;}
 
 #ifdef LUT
 #define TAG "lut"

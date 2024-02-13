@@ -3,7 +3,7 @@
 #include<stdio.h> 
 #include<stdlib.h> 
 
-typedef double F;typedef int I; typedef unsigned int UI;typedef unsigned long long UJ;
+typedef double F;typedef int I; typedef unsigned int UI;typedef unsigned long long UJ;typedef unsigned short UH;
 
 #define R return
 #define O printf
@@ -26,7 +26,9 @@ static const I lut[12]={0,31,61,92,122,153,184,214,245,275,306,337};
 #else
 #define TAG "kpc"
 //#define mb(m) ((m*306+5)*13107>>17) //!< courtesy aab
-#define mb(m)    ((m*153+2)*1639>>13) //!< regents of kparc
+//#define mb(m) ((m*153+2)*1639>>13) //!< regents of kparc
+//#define mb(m) (((UH)((m*3914)+83))>>7) //!< dzaima
+#define mb(m) (((UH)((m*979)+15))>>5)
 #endif
 
 #define Zin __attribute__((always_inline)) inline

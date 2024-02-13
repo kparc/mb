@@ -1,7 +1,7 @@
 //!fast month boundary \copyright (c) 2020-2024 the regents of kparc \license mit
 #include"c.h"
 
-#define ARENA  1024*1024*128*2
+#define ARENA  1024*1024*256
 #define LAPS   1
 
 //!generate a bunch of random gregorian triplets e.g. (2001,1,1)

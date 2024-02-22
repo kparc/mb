@@ -1,6 +1,6 @@
 # fast month boundary
 
-we present a fresh take on a very old and ubiqutous problem: it is very innefficient to represent dates of Gregorian calendar in computer memory in a way most humans are accustomed to perceive them. for instance, there is galaxy of ways to write down `February 1st, 1981` in some human-readable format, e.g. `020181`, `1981-02-01` or "1-e февраля 1981 года н.э." but none of them are good for a computer to store and perform efficient arithmetic on them. for that reason, computers usually do it differently.
+we present a fresh take on an old and ubiqutous problem: it is very innefficient to represent dates of Gregorian calendar in computer memory in a way most humans are accustomed to perceive them. for instance, there is galaxy of ways to write down `February 1st, 1981` in some human-readable format, e.g. `020181`, `1981-02-01` or "1-e февраля 1981 года н.э." but none of them are good for a computer to store and perform efficient arithmetic on them. for that reason, computers usually do it differently.
 
 ## epoch date
 
@@ -37,15 +37,6 @@ $ cd mb && make
 Apple clang version 15.0.0 (clang-1500.1.0.2.5)
 Target: arm64-apple-darwin23.3.0
 
-month boundary benchmark (kpc):
-
-arena 3072 mb, 1 laps:
-2008-2-24 61 2610
-2059-11-9 337 21496
-2045-3-27 92 16156
-...
-checksum: 1225299026794 wall time: 0.095106s
-
 month boundary benchmark (lut):
 
 arena 3072 mb, 1 laps:
@@ -54,6 +45,15 @@ arena 3072 mb, 1 laps:
 2045-3-27 92 16156
 ...
 checksum: 1225299026794 wall time: 0.152713s
+
+month boundary benchmark (kpc):
+
+arena 3072 mb, 1 laps:
+2008-2-24 61 2610
+2059-11-9 337 21496
+2045-3-27 92 16156
+...
+checksum: 1225299026794 wall time: 0.095106s
 ```
 
 please let us know if you are aware of prior art of the latter techique, or a better one.

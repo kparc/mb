@@ -14,9 +14,9 @@ int ymd(int y,int m,int d){return y-=2001,m=12*y+m+9,m/12*1461/4+mb(m%12)-307+d;
 
 in this C implementation, `ymd(2001,1,1)` yields `0`, which means that January 1st, 2001 must be its _epoch date_. the reason it doesn't use a much more famous epoch date which marks the beginning of _Aerae vulgaris_ is much more down to earth: beyond any doubt, Jan 1st 2001 was a `Monday`. 
 
-> in contrast, although it's commonly accepted that the first day of 1 BCE fell on a weekend day, modern scholars seem to differ in opinion when it comes to the days of old. as any computer programmer would agree, we should at least be thankful for the lapse of 0 BCE, mostly because the concept of zero became popular in certain parts much later on.
+> in contrast, although it's commonly accepted that the first day of 1 BC fell on a weekend day, modern scholars seem to differ in opinion when it comes to the days of old. as any computer programmer would agree, we should at least be thankful for the lapse of 0 BC,. after all, the concept of zero became popular in certain parts later on.
 
-computer programmers also rely on great many texts written on the subject of date arithmetic, and any such [text](https://howardhinnant.github.io/date_algorithms.html) usually begins with elucidation of why it happens to be more convenient to "begin" a Gregorian year in March. if the reason for this oddity isn't immediately clear, it helps to revisit the idea of _leap years_, which is a fundamental feature of Gregorian system that makes it remarkably accurate in the long term while keeping it sufficiently simple for humans. it states that every fourth year is a leap year except for century years that are not divisible by 400. in simpler terms, this rule eliminates 3 leap years every 4 centuries, making the Gregorian calendar sufficiently correct for common purposes.
+this explains why computer programmers tend to prefer holy scriptures to great many texts written on the subject of date arithmetic, and any such [text](https://howardhinnant.github.io/date_algorithms.html) usually begins with elucidation of why it happens to be more convenient to "begin" a Gregorian year in March. if the reason for this oddity isn't immediately clear, it helps to revisit the idea of _leap years_, which is a fundamental feature of Gregorian system that makes it remarkably accurate in the long term while keeping it sufficiently simple for humans. it states that every fourth year is a leap year except for century years that are not divisible by 400. in simpler terms, this rule eliminates 3 leap years every 4 centuries, making the Gregorian calendar sufficiently correct for common purposes.
 
 > the leap year formula is due to the Vatican librarian Aloysius Giglio, who lived around mid 16th century. little is known about this man, but his tremendous contribution lives on: although the concept of occasional *leap second* is based on modern science, it adjusts Giglio's calculations only so slightly as to keep the general population mostly unaware of it.
 
@@ -82,7 +82,7 @@ arena 3072 mb, 1 laps:
 checksum: 1225299026794 wall time: 0.062350s
 ```
 
-the code pre-generates about 3 gigabytes of random valid `(y,m,d)` triplets, and then benchmarks both versions of `mb()` using this dataset. `checksum` value ensures that both versions correctly perform identical work. `wall time` is the measure how fast.
+the code pre-generates about 3 gigabytes of random valid `(y,m,d)` triplets in RAM, and then benchmarks both versions of `mb()` using this dataset. `checksum` value ensures that both versions correctly perform identical work. `wall time` is the measure how fast.
 
 ## how
 

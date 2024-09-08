@@ -100,7 +100,7 @@ while we acknowledge that the chosen benchmarking method could have been less sy
 
 * we claim that the performance of [1] must be fundamentally dependent on the probability of a cache eviction event, which we assume to be deterministically greater than 0.
 
-* we are aware of the argument which states "it takes a fool to assume that modern CPUs can be as foolish as to evict a tiny yet critical LUT under any thinkable cuircumstance, no matter how heavy and random the cache pressure may be". to that end, we refer the reader to our two previous claims and  respectfully delegate the burden of proof to where it belongs by a long-standing convention.
+* we are aware of the argument which states "it takes a fool to assume that modern CPUs can be as foolish as to evict a tiny yet critical LUT under any thinkable cuircumstance, no matter how heavy and random the cache pressure may be". to that end, we refer the reader to our two previous claims and  respectfully delegate the burden of proof to where it belongs by a long-standing tradition.
 
 * although [2] wins neglibily little space, it does not trade it for time, since it also wins on time. it wins.
 

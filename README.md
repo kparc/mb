@@ -104,7 +104,7 @@ while we acknowledge that the chosen benchmarking method could have been less sy
 
 * although [2] wins neglibily little space, it does not trade it for time, since it also wins on time. it wins.
 
-* last but not least, solutions [1] and [2] display very different behaviours on invalid aka insecure input, which we assume to be sufficiently self-evident as not to require extra prose. we only note that although our particular `ymd()` implementation uses modulo operation which makes [1] inherently safe. in contrast, [2] is intrinsically defensive enough to withstand blind copy-paste.
+* last but not least, solutions [1] and [2] display very different behaviours on invalid aka insecure input, which we assume to be sufficiently self-evident as not to require extra prose. we only note that our particular `ymd()` implementation uses modulo operation which makes [1] inherently safe. in contrast, [2] is intrinsically safe enough to withstand blind copy-paste.
 
 * please let us know if you are aware of prior art of [2] or a more efficient way to implement `mb()` in case you are at liberty to share it.
 

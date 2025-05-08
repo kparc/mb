@@ -54,12 +54,22 @@ there happens to exist a function, better called a *map*, which does exactly the
 
 ```c
 // kpc [2]
-#define mb(m) (((short)((m*979)+15))>>5)
+#define mb(m) ((((m*979)+15)>>5)
 ```
 
-here's a quick visual cue:
+for a quick visual cue:
 
 ![0..11 to 0 31 61 92 122 153 184 214 245 275 306 337](plot.png)
+
+on most architectures, [2] compiles to something very similar or identical to:
+
+```asm
+mb:
+        imul    eax, edi, 979
+        add     eax, 15
+        sar     eax, 5
+        ret
+```
 
 
 3. try them both on your hardware using your compiler:

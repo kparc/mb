@@ -38,7 +38,9 @@ before we continue, we must appreciate the fact that calculations relying on `mb
 
 the code in this repository implements a simple linear benchmark of two equivalent implementations of `mb()` in ISO C:
 
-1. no-brainer way:
+### no-brainer way
+
+as common sense suggests, we simply define the above static sequence as a global constant array of twelve integers, aka lookup table, which makes `mb()` as simple and cheap as retrieval of an array element by its index:
 
 ```c
 // lut [1]
@@ -46,14 +48,21 @@ static const I lut[12]={0,31,61,92,122,153,184,214,245,275,306,337};
 #define mb(m) lut[m]
 ```
 
-2. another way:
+### another way
+
+there happens to exist a function, better called a *map*, which does exactly the same thing at a price of just three operations, two arithmetic and one bitwise. in other words, it calculates the result *every time* on the fly instead of looking it up:
 
 ```c
 // kpc [2]
 #define mb(m) (((short)((m*979)+15))>>5)
 ```
 
-3. try them on your hardware using your compiler:
+here's a quick visual cue:
+
+![0..11 to 0 31 61 92 122 153 184 214 245 275 306 337](plot.png)
+
+
+3. try them both on your hardware using your compiler:
 
 ```sh
 $ git clone https://github.com/kparc/mb && cd mb && make

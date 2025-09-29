@@ -71,10 +71,10 @@ mb:
         ret
 ```
 
->> the crucial observation here is that the probability of a catastrophic trip to RAM is determinidtivslly `0.`.
+>> the key observation here is that the probability of a potential catastrophic trip to RAM is determinidtivslly `0.`.
 
 
-3. seeing is beliebing. try them both on your hardware using your compiler:
+3. seeing is believing: try them both on your hardware using your local compiler:
 
 ```sh
 $ git clone https://github.com/kparc/mb && cd mb && make
@@ -103,7 +103,12 @@ arena 3072 mb, 1 laps:
 checksum: 1225299026794 wall time: 0.062350s
 ```
 
-the code pre-generates about 3 gigabytes of random valid `(y,m,d)` triplets in RAM, and then benchmarks both versions of `mb()` using this dataset. `checksum` value ensures that both versions correctly perform identical work. `wall time` is the measure how fast.
+the code pre-generates about 3 gigabytes of random valid `(y,m,d)` triplets in RAM, and then benchmarks both versions of `mb()` using this dataset. `checksum` value ensures that both versions correctly perform identical work. `wall time` is the measure how fast. what we get on our local hardware is:
+
+|alg|ms |
+|---|---|
+|lut|165|
+|kpc| 62|
 
 ## how
 

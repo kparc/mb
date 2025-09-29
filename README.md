@@ -48,7 +48,7 @@ static const I lut[12]={0,31,61,92,122,153,184,214,245,275,306,337};
 #define mb(m) lut[m]
 ```
 
-### less obvious way
+### a less obvious way
 
 there happens to exist a function, better called a *map*, which does exactly the same thing at a price of just three operations, two arithmetic and one bitwise. in other words, it calculates the result *every time* on the fly instead of looking it up:
 

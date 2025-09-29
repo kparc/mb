@@ -38,7 +38,7 @@ before we continue, we must appreciate the fact that calculations relying on `mb
 
 the code in this repository implements a simple linear benchmark of two equivalent implementations of `mb()` in ISO C:
 
-### no-brainer way
+### the obvious way
 
 as common sense suggests, we simply define the above static sequence as a global constant array of twelve integers, aka lookup table, which makes `mb()` as simple and cheap as retrieval of an array element by its index:
 
@@ -48,7 +48,7 @@ static const I lut[12]={0,31,61,92,122,153,184,214,245,275,306,337};
 #define mb(m) lut[m]
 ```
 
-### another way
+### less obvious way
 
 there happens to exist a function, better called a *map*, which does exactly the same thing at a price of just three operations, two arithmetic and one bitwise. in other words, it calculates the result *every time* on the fly instead of looking it up:
 
@@ -57,11 +57,11 @@ there happens to exist a function, better called a *map*, which does exactly the
 #define mb(m) ((((m*979)+15)>>5)
 ```
 
-for a quick visual cue:
+for a quick visual cue why this works:
 
 ![0..11 to 0 31 61 92 122 153 184 214 245 275 306 337](plot.png)
 
-on most architectures, [2] compiles to something very similar or identical to:
+on most architectures, [2] compiles to something orthogonal to:
 
 ```asm
 mb:
@@ -71,8 +71,10 @@ mb:
         ret
 ```
 
+>> the crucial observation here is that the probability of a catastrophic trip to RAM is determinidtivslly `0.`.
 
-3. try them both on your hardware using your compiler:
+
+3. seeing is beliebing. try them both on your hardware using your compiler:
 
 ```sh
 $ git clone https://github.com/kparc/mb && cd mb && make
@@ -115,7 +117,7 @@ while we acknowledge that the chosen benchmarking method could have been less sy
 
 * [2] is considerably and reproducibly faster than [1] on all tested (micro-)architectures within our reach. your mileage may vary, feel free to share your results.
 
-* we claim that the performance of [2] can be said to be deterministic within the limitations of available opcode timings which are famously freely (not)available from the majority of CPU vendors.
+* we claim that the performance of [2] can be characterized as relatively deterministic within the limitations of available opcode timings which are famously freely (not)available from the majority of CPU vendors.
 
 * we claim that the performance of [1] must be fundamentally dependent on the probability of a cache eviction event, which we assume to be deterministically greater than 0.
 
@@ -128,8 +130,8 @@ while we acknowledge that the chosen benchmarking method could have been less sy
 * please let us know if you are aware of prior art of [2] or a more efficient way to implement `mb()` in case you are at liberty to share it.
 
 
-copyright (c) 2020-2024 regents of kparc, MIT license
+copyright (c) 2020-2025 regents of kparc, MIT-3-clause.
 
-_in memoriam of [aab](https://peps.python.org/pep-0495/)._
+_in memoriam of [aab](https://peps.python.org/pep-0495/), dear friend and colleague._
 
 `/:~`
